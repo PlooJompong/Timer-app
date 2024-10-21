@@ -1,5 +1,10 @@
-const DigitalTimer = ({ timer }) => {
-  return <div>{timer}</div>;
+const DigitalTimer = ({ timer, breakTimer }) => {
+  return (
+    <div>
+      Digital: {timer}
+      Break: {breakTimer}
+    </div>
+  );
 };
 
 export default DigitalTimer;

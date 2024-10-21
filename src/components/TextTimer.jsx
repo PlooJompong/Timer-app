@@ -1,5 +1,10 @@
-const TextTimer = ({ timer }) => {
-  return <div>{timer}</div>;
+const TextTimer = ({ timer, breakTimer }) => {
+  return (
+    <div>
+      Text: {timer}
+      Break: {breakTimer}
+    </div>
+  );
 };
 
 export default TextTimer;
