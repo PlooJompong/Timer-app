@@ -15,6 +15,10 @@ export default {
       fontFamily: {
         sans: ['PT Sans', 'sans-serif'],
       },
+      colors: {
+        "custom-gray": "#222222",
+        "mini": "#EEEEEE"
+      },
     },
   },
   plugins: [],
