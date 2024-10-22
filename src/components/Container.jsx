@@ -1,10 +1,14 @@
-const Container = ({ isDone, children }) => {
-  return !isDone ? (
-    <main className="text-custom-gray container h-full p-4 tracking-widest">
-      {children}
-    </main>
-  ) : (
-    <main className="bg-custom-gray h-full w-full p-4 tracking-widest">
+const Container = ({ isDone, view, children }) => {
+  const getBackgroundClass = () => {
+    if (isDone || view === "pause") {
+      return "bg-custom-gray"; // Same as Alarm's background
+    } else {
+      return "text-custom-gray container"; // Normal background
+    }
+  };
+
+  return (
+    <main className={`${getBackgroundClass()} h-screen p-4 tracking-widest`}>
       {children}
     </main>
   );
