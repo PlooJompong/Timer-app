@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import logo from "../assets/logo.svg";
-
+import { motion } from "framer-motion";
 const Loading = () => {
   const text = "For all your timing needs".split("");
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center bg-black">
-      <Link to="/setTimer" className="animate-pulse">
+    <div className="flex h-full w-full flex-col items-center justify-center bg-custom-gray">
+      <Link to="/timer" className="animate-pulse">
         <img src={logo} alt="Logo" />
       </Link>
       <h1 className="text-sm text-white">

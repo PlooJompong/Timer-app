@@ -1,12 +1,15 @@
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import alarmIcon from "../assets/alarmIcon.svg";
+import { motion } from "framer-motion";
 
-const Alarm = ({ onClick }) => {
+const Alarm = ({ handleStop }) => {
   const text = "Times up!".split("");
 
   const bellShake = {
     initial: { rotate: 0 },
-    animate: { rotate: [0, 20, -20, 20, -20, 0] },
+    animate: {
+      rotate: [0, 20, -20, 20, -20, 0],
+    },
   };
 
   const backgroundAnimation = {
@@ -18,24 +21,32 @@ const Alarm = ({ onClick }) => {
   };
 
   return (
-    <>
+    <section className="relative mx-auto flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-custom-gray tracking-widest">
       <motion.div
-        className="absolute aspect-square w-[90vw] rounded-full"
+        className="absolute z-10 aspect-square w-[100vw] rounded-full max-[320px]:w-[150vw]"
         variants={backgroundAnimation}
         initial="initial"
         animate="animate"
-        transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
+        transition={{
+          repeat: Infinity,
+          duration: 1.5,
+          delay: 0.5,
+        }}
       ></motion.div>
 
       <motion.div
-        className="absolute aspect-square w-[45vw] rounded-full"
+        className="absolute z-20 aspect-square w-[50vw] rounded-full max-[320px]:w-[100vw]"
         variants={backgroundAnimation}
         initial="initial"
         animate="animate"
-        transition={{ repeat: Infinity, duration: 2, delay: 1.5 }}
+        transition={{
+          repeat: Infinity,
+          duration: 1.5,
+          delay: 1,
+        }}
       ></motion.div>
 
-      <div className="my-8 flex flex-col items-center justify-center">
+      <div className="relative z-30 my-8 flex flex-col items-center justify-center">
         <motion.img
           src={alarmIcon}
           alt="Alarm Icon"
@@ -57,7 +68,7 @@ const Alarm = ({ onClick }) => {
                 delay: index * 0.05,
                 repeat: Infinity,
                 repeatType: "loop",
-                repeatDelay: 3,
+                repeatDelay: 2.5,
               }}
             >
               {char}
@@ -66,14 +77,18 @@ const Alarm = ({ onClick }) => {
         </p>
       </div>
 
-      <motion.button
-        className="z-10 rounded-[5px] border border-white p-[10px] font-bold text-white hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
-        whileHover={{ scale: 0.95 }}
-        onClick={onClick}
-      >
-        SET NEW TIMER
-      </motion.button>
-    </>
+      <div className="relative z-30">
+        <Link to="/timer">
+          <motion.button
+            className="rounded-[5px] border border-white p-[10px] font-bold text-white hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
+            whileHover={{ scale: 0.95 }}
+            onClick={handleStop}
+          >
+            SET NEW TIMER
+          </motion.button>
+        </Link>
+      </div>
+    </section>
   );
 };
 

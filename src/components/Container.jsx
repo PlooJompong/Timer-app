@@ -1,14 +1,11 @@
-const Container = ({ isDone, view, children }) => {
-  const getBackgroundClass = () => {
-    if (isDone || view === "pause") {
-      return "bg-custom-gray"; // Same as Alarm's background
-    } else {
-      return "text-custom-gray container"; // Normal background
-    }
-  };
+import Navbar from "./Navbar";
 
+const Container = ({ children, ...props }) => {
   return (
-    <main className={`${getBackgroundClass()} h-screen p-4 tracking-widest`}>
+    <main
+      className="max-w-screen relative mx-auto flex h-screen flex-col items-center justify-center tracking-widest text-custom-gray"
+      {...props}
+    >
       {children}
     </main>
   );

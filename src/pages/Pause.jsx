@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import breakIcon from "../assets/breakIcon.svg";
 
-const Pause = ({ breakTime, onClick }) => {
+const Pause = ({ breakTime, handleRestart }) => {
   const text = "Pause & breath".split("");
 
   const backgroundAnimation = {
@@ -18,25 +18,25 @@ const Pause = ({ breakTime, onClick }) => {
   };
 
   return (
-    <>
+    <section className="relative mx-auto flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-custom-gray tracking-widest">
       <motion.div
-        className="absolute aspect-square w-[90vw] rounded-full"
+        className="absolute z-10 aspect-square w-[100vw] rounded-full max-[320px]:w-[150vw]"
         variants={backgroundAnimation}
         initial="initial"
         animate="animate"
-        transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
+        transition={{ repeat: Infinity, duration: 5, delay: 0.5 }}
       ></motion.div>
 
       <motion.div
-        className="absolute aspect-square w-[45vw] rounded-full"
+        className="absolute z-20 aspect-square w-[50vw] rounded-full max-[320px]:w-[100vw]"
         variants={backgroundAnimation}
         initial="initial"
         animate="animate"
-        transition={{ repeat: Infinity, duration: 2, delay: 1.5 }}
+        transition={{ repeat: Infinity, duration: 5, delay: 1 }}
       ></motion.div>
 
-      <div className="my-8 flex animate-pulse flex-col items-center justify-center">
-        <img src={breakIcon} alt="Alarm Icon" className="mt-20" />
+      <div className="z-30 my-8 flex animate-pulse flex-col items-center justify-center">
+        <img src={breakIcon} alt="Alarm Icon" className="mb-4 mt-20" />
 
         <section className="flex h-1/2 flex-col items-center justify-center">
           <p className="my-8 text-4xl font-bold text-white max-[320px]:text-lg">
@@ -63,16 +63,16 @@ const Pause = ({ breakTime, onClick }) => {
             {formatTime(breakTime % 60)}
           </p>
         </section>
-
-        <motion.button
-          className="z-10 rounded-[5px] border border-gray-500 p-[10px] font-bold text-gray-500 hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
-          whileHover={{ scale: 0.95 }}
-          onClick={onClick}
-        >
-          NO PAUSE, GO NOW
-        </motion.button>
       </div>
-    </>
+
+      <motion.button
+        className="z-30 rounded-[5px] border border-gray-500 p-[10px] font-bold text-gray-500 hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
+        whileHover={{ scale: 0.95 }}
+        onClick={handleRestart}
+      >
+        NO PAUSE, GO NOW
+      </motion.button>
+    </section>
   );
 };
 
