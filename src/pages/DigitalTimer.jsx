@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
-import Button from "../components/Button.jsx";
 
 const DigitalTimer = ({ seconds, isRunning, handleStop, handleStart }) => {
   const minutes = Math.floor(seconds / 60);

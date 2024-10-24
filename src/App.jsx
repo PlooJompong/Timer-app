@@ -13,10 +13,10 @@ import Container from "./components/Container.jsx";
 const App = () => {
   const navigate = useNavigate();
 
-  const isTesting = true;
+  const [isTesting, setTesting] = useState(true);
 
   const BREAK_DURATION = isTesting ? 5 : 5 * 60;
-  const INITIAL_TIME = isTesting ? 62 : 1 * 60;
+  const INITIAL_TIME = isTesting ? 10 : 5 * 60;
 
   const [seconds, setSeconds] = useState(INITIAL_TIME);
   const [breakTime, setBreakTime] = useState(BREAK_DURATION);
@@ -104,19 +104,26 @@ const App = () => {
   };
 
   const handleDecrease = () => {
-    if (seconds > 1) {
-      // if (seconds > 60) {
-
-      setSeconds((prev) => prev - 1);
-      // setSeconds((prev) => prev - 60);
+    if (isTesting) {
+      if (seconds > 5) {
+        setSeconds((prev) => prev - 5);
+      }
+    } else {
+      if (seconds > 300) {
+        setSeconds((prev) => prev - 300);
+      }
     }
   };
 
   const handleIncrease = () => {
-    if (seconds < 70) {
-      // if (seconds < 600) {
-      setSeconds((prev) => prev + 1);
-      // setSeconds((prev) => prev + 60);
+    if (isTesting) {
+      if (seconds < 70) {
+        setSeconds((prev) => prev + 5);
+      }
+    } else {
+      if (seconds < 3600) {
+        setSeconds((prev) => prev + 300);
+      }
     }
   };
   return (
@@ -137,6 +144,7 @@ const App = () => {
                 setIsIntervals={setIsIntervals}
                 breakIsOn={breakIsOn}
                 setBreakIsOn={setBreakIsOn}
+                isTesting={isTesting}
               />
             }
           />

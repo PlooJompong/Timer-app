@@ -11,7 +11,10 @@ const SetTimer = ({
   setBreakIsOn,
   handleDecrease,
   handleIncrease,
+  isTesting,
 }) => {
+  const minutes = Math.floor(seconds / 60);
+
   return (
     <>
       <Navbar />
@@ -27,8 +30,7 @@ const SetTimer = ({
             </motion.button>
 
             <p className="text-6xl font-bold max-[320px]:text-6xl sm:text-[80px]">
-              {seconds}
-              {/* {Math.floor(seconds / 60)} */}
+              {isTesting ? seconds : minutes}
             </p>
 
             <motion.button
@@ -40,8 +42,7 @@ const SetTimer = ({
             </motion.button>
           </div>
 
-          <p>seconds</p>
-          {/* <p>minutes</p> */}
+          <p>{isTesting ? "seconds" : "minutes"}</p>
         </div>
         {/* Checkboxes */}
         <div className="my-8 flex w-3/4 flex-col items-start justify-center gap-4">
@@ -72,7 +73,9 @@ const SetTimer = ({
             />
 
             <label htmlFor="break" className="text-lg max-[320px]:text-base">
-              {/* 5 minutes break / inteval */}5 seconds break / inteval
+              {isTesting
+                ? "5 seconds break / interval"
+                : "5 minutes break / inteval"}
             </label>
           </div>
         </div>

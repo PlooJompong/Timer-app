@@ -72,15 +72,38 @@ const TextTimer = ({ seconds, isRunning, handleStart, handleStop }) => {
     return numberToText[time];
   };
 
+  const displayTime = () => {
+    if (minutes === 1 && remainingSeconds === 0) {
+      return "EN MINUT KVAR";
+    } else if (minutes === 1 && remainingSeconds === 1) {
+      return "EN MINUT OCH EN SEKUND KVAR";
+    } else if (minutes === 1) {
+      return `EN MINUT OCH ${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`;
+    } else if (minutes > 1 && remainingSeconds === 0) {
+      return `${timeToText(minutes).toUpperCase()} MINUTER KVAR`;
+    } else if (minutes > 1 && remainingSeconds === 1) {
+      return `${timeToText(minutes).toUpperCase()} MINUTER OCH EN SEKUND KVAR`;
+    } else if (minutes > 1) {
+      return `${timeToText(minutes).toUpperCase()} MINUTER OCH ${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`;
+    } else if (remainingSeconds === 1) {
+      return "EN SEKUND KVAR";
+    } else if (minutes === 0 && remainingSeconds === 0) {
+      return "TIDEN ÄR SLUT!";
+    } else {
+      return `${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`;
+    }
+  };
+
   return (
     <>
       <Navbar />
       <section className="flex h-screen w-4/5 max-w-screen-xl flex-col items-center justify-center text-pretty">
         <div className="flex h-1/2 w-full flex-col items-center justify-center">
           <h1 className="my-auto text-center text-3xl font-bold">
-            {minutes === 0
+            {displayTime()}
+            {/* {minutes === 0
               ? `${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`
-              : `${timeToText(minutes).toUpperCase()} MINUTER OCH ${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`}
+              : `${timeToText(minutes).toUpperCase()} MINUTER OCH ${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`} */}
           </h1>
         </div>
 
