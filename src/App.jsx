@@ -15,8 +15,8 @@ const App = () => {
 
   const isTesting = true;
 
-  const BREAK_DURATION = isTesting ? 5 : 5 * 60;
-  const INITIAL_TIME = isTesting ? 10 : 1 * 60;
+  const BREAK_DURATION = isTesting ? 3 : 5 * 60;
+  const INITIAL_TIME = isTesting ? 5 : 1 * 60;
 
   const [seconds, setSeconds] = useState(INITIAL_TIME);
   const [breakTime, setBreakTime] = useState(BREAK_DURATION);
@@ -24,7 +24,7 @@ const App = () => {
   const [breakIsOn, setBreakIsOn] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [onBreak, setOnBreak] = useState(false);
-  const [runningTime, setRunningTime] = useState(null);
+  const [runningTime, setRunningTime] = useState(INITIAL_TIME);
   const [previousPath, setPreviousPath] = useState(null);
 
   useEffect(() => {

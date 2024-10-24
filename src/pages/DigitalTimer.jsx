@@ -3,6 +3,9 @@ import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
 
 const DigitalTimer = ({ seconds, isRunning, handleStop, handleStart }) => {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+
   const formatTime = (time) => {
     return time.toString().padStart(2, "0");
   };
@@ -12,7 +15,8 @@ const DigitalTimer = ({ seconds, isRunning, handleStop, handleStart }) => {
       <Navbar />
       <section className="flex h-1/2 flex-col items-center justify-center">
         <h1 className="my-auto text-[80px] font-bold">
-          {formatTime(Math.floor(seconds / 60))}:{formatTime(seconds % 60)}
+          {/* {formatTime(Math.floor(seconds / 60))}:{formatTime(seconds % 60)} */}
+          {minutes}:{formatTime(remainingSeconds)}
         </h1>
       </section>
       {isRunning ? (
