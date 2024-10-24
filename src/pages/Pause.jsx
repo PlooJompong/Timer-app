@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import breakIcon from "../assets/breakIcon.svg";
 
 const Pause = ({ breakTime, handleRestart }) => {
@@ -38,11 +37,15 @@ const Pause = ({ breakTime, handleRestart }) => {
         transition={{ repeat: Infinity, duration: 5, delay: 1 }}
       />
 
-      <div className="z-30 my-8 flex animate-pulse flex-col items-center justify-center">
-        <img src={breakIcon} alt="Alarm Icon" className="mb-4 mt-20" />
+      <div className="z-30 mt-28 flex w-4/5 flex-col items-center justify-center">
+        <img
+          src={breakIcon}
+          alt="Alarm Icon"
+          className="my-auto animate-pulse"
+        />
 
-        <section className="flex h-1/2 flex-col items-center justify-center">
-          <p className="my-8 text-4xl font-bold text-white max-[320px]:text-lg">
+        <div className="mb-20 mt-8 flex flex-col items-center justify-center">
+          <p className="text-4xl font-bold text-white max-[320px]:text-lg">
             {text.map((char, index) => (
               <motion.span
                 key={index}
@@ -61,10 +64,10 @@ const Pause = ({ breakTime, handleRestart }) => {
             ))}
           </p>
 
-          <p className="z-10 mb-20 text-2xl text-gray-500">
+          <p className="z-10 mt-8 text-2xl text-gray-500">
             {minutes > 0 ? `${minutes}:${formatTime(seconds)}` : `${seconds}`}
           </p>
-        </section>
+        </div>
       </div>
 
       <motion.button

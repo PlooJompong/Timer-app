@@ -87,8 +87,6 @@ const TextTimer = ({ seconds, isRunning, handleStart, handleStop }) => {
       return `${timeToText(minutes).toUpperCase()} MINUTER OCH ${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`;
     } else if (remainingSeconds === 1) {
       return "EN SEKUND KVAR";
-    } else if (minutes === 0 && remainingSeconds === 0) {
-      return "TIDEN ÄR SLUT!";
     } else {
       return `${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`;
     }

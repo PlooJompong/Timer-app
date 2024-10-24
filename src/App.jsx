@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Route, Routes } from "react-router-dom";
+import { useNavigate, Route, Routes, useLocation } from "react-router-dom";
 
 import Loading from "./pages/Loading.jsx";
 import SetTimer from "./pages/SetTimer.jsx";
@@ -12,11 +12,12 @@ import Container from "./components/Container.jsx";
 
 const App = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [isTesting, setTesting] = useState(true);
 
   const BREAK_DURATION = isTesting ? 5 : 5 * 60;
-  const INITIAL_TIME = isTesting ? 10 : 5 * 60;
+  const INITIAL_TIME = isTesting ? 5 : 5 * 60;
 
   const [seconds, setSeconds] = useState(INITIAL_TIME);
   const [breakTime, setBreakTime] = useState(BREAK_DURATION);
@@ -47,7 +48,7 @@ const App = () => {
             if (isIntervals && breakIsOn) {
               setOnBreak(true);
               setBreakTime(BREAK_DURATION);
-              setPreviousPath(window.location.pathname);
+              setPreviousPath(location.pathname);
               navigate("/pause");
             } else if (isIntervals) {
               setSeconds(runningTime);
@@ -74,6 +75,7 @@ const App = () => {
     navigate,
     previousPath,
     INITIAL_TIME,
+    location.pathname,
   ]);
 
   const handleStart = () => {

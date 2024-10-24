@@ -46,7 +46,7 @@ const Alarm = ({ handleStop }) => {
         }}
       />
 
-      <div className="relative z-30 my-8 flex flex-col items-center justify-center">
+      <div className="relative z-30 flex h-1/2 w-4/5 flex-col items-center justify-center">
         <motion.img
           src={alarmIcon}
           alt="Alarm Icon"
@@ -77,17 +77,15 @@ const Alarm = ({ handleStop }) => {
         </p>
       </div>
 
-      <div className="relative z-30">
-        <Link to="/timer">
-          <motion.button
-            className="rounded-[5px] border border-white p-[10px] font-bold text-white hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
-            whileHover={{ scale: 0.95 }}
-            onClick={handleStop}
-          >
-            SET NEW TIMER
-          </motion.button>
-        </Link>
-      </div>
+      <Link to="/timer">
+        <motion.button
+          className="relative z-30 rounded-[5px] border border-white p-[10px] font-bold text-white hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
+          whileHover={{ scale: 0.95 }}
+          onClick={handleStop}
+        >
+          SET NEW TIMER
+        </motion.button>
+      </Link>
     </section>
   );
 };
