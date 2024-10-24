@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { motion, AnimatePresence } from "framer-motion";
 import navIconBlack from "../assets/navIconBlack.svg";
 import navIconWhite from "../assets/navIconWhite.svg";
-
-import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +26,9 @@ const Navbar = () => {
   return (
     <>
       <nav className="relative z-30 mx-auto flex w-[90vw] max-w-screen-xl items-center justify-between pt-4">
-        <button onClick={toggleOpen}>
+        <motion.button onClick={toggleOpen} whileHover={{ scale: 1.1 }}>
           <img src={isOpen ? navIconWhite : navIconBlack} alt="Icon" />
-        </button>
+        </motion.button>
         {!isOpen && <p className="text-custom-gray">interval</p>}
       </nav>
 
@@ -47,6 +45,7 @@ const Navbar = () => {
           />
         )}
       </AnimatePresence>
+
       {isOpen && (
         <motion.div
           className="fixed inset-0 z-20 flex flex-col items-center justify-center gap-8 text-4xl font-bold text-white max-[320px]:text-3xl"

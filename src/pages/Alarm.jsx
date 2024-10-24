@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import alarmIcon from "../assets/alarmIcon.svg";
 import { motion } from "framer-motion";
+import alarmIcon from "../assets/alarmIcon.svg";
 
 const Alarm = ({ handleStop }) => {
   const text = "Times up!".split("");

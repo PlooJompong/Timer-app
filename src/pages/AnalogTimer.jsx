@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import Navbar from "../components/Navbar";
+import StartButton from "../components/StartButton";
+import AbortButton from "../components/AbortButton";
 import analog from "../assets/analog.svg";
-import Navbar from "../components/Navbar.jsx";
 
 const AnalogTimer = ({ seconds, isRunning, handleStart, handleStop }) => {
   const [handleAngle, setHandleAngle] = useState({
@@ -48,22 +49,10 @@ const AnalogTimer = ({ seconds, isRunning, handleStart, handleStop }) => {
         </div>
 
         {isRunning ? (
-          <motion.button
-            className="rounded-[5px] border border-gray-500 p-[10px] font-bold text-gray-500 hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
-            whileHover={{ scale: 0.95 }}
-            onClick={handleStop}
-          >
-            ABORT TIMER
-          </motion.button>
+          <AbortButton onClick={handleStop} />
         ) : (
           <Link to={"/analog"}>
-            <motion.button
-              className="rounded-[5px] border border-gray-500 p-[10px] font-bold text-gray-500 hover:border-2 hover:border-green-300 hover:text-green-500 max-[320px]:text-lg"
-              whileHover={{ scale: 0.95 }}
-              onClick={handleStart}
-            >
-              START TIMER
-            </motion.button>
+            <StartButton onClick={handleStart} />
           </Link>
         )}
       </section>

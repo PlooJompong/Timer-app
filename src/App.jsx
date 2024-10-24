@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Route, Routes, useLocation } from "react-router-dom";
-
 import Loading from "./pages/Loading.jsx";
 import SetTimer from "./pages/SetTimer.jsx";
 import DigitalTimer from "./pages/DigitalTimer.jsx";
@@ -14,7 +13,7 @@ const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [isTesting, setTesting] = useState(true);
+  const [isTesting, setTesting] = useState(false);
 
   const BREAK_DURATION = isTesting ? 5 : 5 * 60;
   const INITIAL_TIME = isTesting ? 5 : 5 * 60;
@@ -105,43 +104,19 @@ const App = () => {
     navigate(previousPath || "/timer");
   };
 
-  const handleDecrease = () => {
-    if (isTesting) {
-      if (seconds > 5) {
-        setSeconds((prev) => prev - 5);
-      }
-    } else {
-      if (seconds > 300) {
-        setSeconds((prev) => prev - 300);
-      }
-    }
-  };
-
-  const handleIncrease = () => {
-    if (isTesting) {
-      if (seconds < 70) {
-        setSeconds((prev) => prev + 5);
-      }
-    } else {
-      if (seconds < 3600) {
-        setSeconds((prev) => prev + 300);
-      }
-    }
-  };
   return (
     <>
-      {/* <Navbar /> */}
       <Container>
         <Routes>
           <Route path="/" element={<Loading />} />
+
           <Route
             path="/timer"
             element={
               <SetTimer
                 seconds={seconds}
+                setSeconds={setSeconds}
                 handleStart={handleStart}
-                handleDecrease={handleDecrease}
-                handleIncrease={handleIncrease}
                 isIntervals={isIntervals}
                 setIsIntervals={setIsIntervals}
                 breakIsOn={breakIsOn}
@@ -150,6 +125,7 @@ const App = () => {
               />
             }
           />
+
           <Route
             path="/digital"
             element={
@@ -161,6 +137,7 @@ const App = () => {
               />
             }
           />
+
           <Route
             path="/analog"
             element={
@@ -172,6 +149,7 @@ const App = () => {
               />
             }
           />
+
           <Route
             path="/text"
             element={
@@ -183,7 +161,9 @@ const App = () => {
               />
             }
           />
+
           <Route path="/alarm" element={<Alarm handleStop={handleStop} />} />
+
           <Route
             path="/pause"
             element={

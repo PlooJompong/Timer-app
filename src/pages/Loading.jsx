@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
 import { motion } from "framer-motion";
+import logo from "../assets/logo.svg";
+
 const Loading = () => {
   const text = "For all your timing needs".split("");
 
