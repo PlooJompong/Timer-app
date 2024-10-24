@@ -15,8 +15,8 @@ const App = () => {
 
   const isTesting = true;
 
-  const BREAK_DURATION = isTesting ? 3 : 5 * 60;
-  const INITIAL_TIME = isTesting ? 5 : 1 * 60;
+  const BREAK_DURATION = isTesting ? 5 : 5 * 60;
+  const INITIAL_TIME = isTesting ? 62 : 1 * 60;
 
   const [seconds, setSeconds] = useState(INITIAL_TIME);
   const [breakTime, setBreakTime] = useState(BREAK_DURATION);
@@ -113,7 +113,7 @@ const App = () => {
   };
 
   const handleIncrease = () => {
-    if (seconds < 10) {
+    if (seconds < 70) {
       // if (seconds < 600) {
       setSeconds((prev) => prev + 1);
       // setSeconds((prev) => prev + 60);
@@ -121,6 +121,7 @@ const App = () => {
   };
   return (
     <>
+      {/* <Navbar /> */}
       <Container>
         <Routes>
           <Route path="/" element={<Loading />} />
@@ -145,8 +146,8 @@ const App = () => {
               <DigitalTimer
                 seconds={seconds}
                 isRunning={isRunning}
-                handleStop={handleStop}
                 handleStart={handleStart}
+                handleStop={handleStop}
               />
             }
           />
@@ -156,6 +157,7 @@ const App = () => {
               <AnalogTimer
                 seconds={seconds}
                 isRunning={isRunning}
+                handleStart={handleStart}
                 handleStop={handleStop}
               />
             }
@@ -166,6 +168,7 @@ const App = () => {
               <TextTimer
                 seconds={seconds}
                 isRunning={isRunning}
+                handleStart={handleStart}
                 handleStop={handleStop}
               />
             }

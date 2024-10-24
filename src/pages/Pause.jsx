@@ -5,6 +5,9 @@ import breakIcon from "../assets/breakIcon.svg";
 const Pause = ({ breakTime, handleRestart }) => {
   const text = "Pause & breath".split("");
 
+  const minutes = Math.floor(breakTime / 60);
+  const seconds = breakTime % 60;
+
   const backgroundAnimation = {
     initial: { backgroundColor: "#222" },
     animate: {
@@ -25,7 +28,7 @@ const Pause = ({ breakTime, handleRestart }) => {
         initial="initial"
         animate="animate"
         transition={{ repeat: Infinity, duration: 5, delay: 0.5 }}
-      ></motion.div>
+      />
 
       <motion.div
         className="absolute z-20 aspect-square w-[50vw] rounded-full max-[320px]:w-[100vw]"
@@ -33,7 +36,7 @@ const Pause = ({ breakTime, handleRestart }) => {
         initial="initial"
         animate="animate"
         transition={{ repeat: Infinity, duration: 5, delay: 1 }}
-      ></motion.div>
+      />
 
       <div className="z-30 my-8 flex animate-pulse flex-col items-center justify-center">
         <img src={breakIcon} alt="Alarm Icon" className="mb-4 mt-20" />
@@ -59,8 +62,7 @@ const Pause = ({ breakTime, handleRestart }) => {
           </p>
 
           <p className="z-10 mb-20 text-2xl text-gray-500">
-            {formatTime(Math.floor(breakTime / 60))}:
-            {formatTime(breakTime % 60)}
+            {minutes > 0 ? `${minutes}:${formatTime(seconds)}` : `${seconds}`}
           </p>
         </section>
       </div>

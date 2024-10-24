@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar.jsx";
 import { motion } from "framer-motion";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import Navbar from "../components/Navbar";
 
 const SetTimer = ({
   seconds,
@@ -15,7 +15,7 @@ const SetTimer = ({
   return (
     <>
       <Navbar />
-      <section className="flex h-screen w-4/5 flex-col items-center justify-center">
+      <section className="flex h-screen w-4/5 max-w-screen-xl flex-col items-center justify-center">
         <div className="flex h-1/2 w-full flex-col items-center justify-center">
           <div className="flex w-full items-center justify-around">
             <motion.button
@@ -72,7 +72,7 @@ const SetTimer = ({
             />
 
             <label htmlFor="break" className="text-lg max-[320px]:text-base">
-              5 minutes break / inteval
+              {/* 5 minutes break / inteval */}5 seconds break / inteval
             </label>
           </div>
         </div>

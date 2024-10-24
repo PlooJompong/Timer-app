@@ -1,7 +1,8 @@
-import Navbar from "../components/Navbar.jsx";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
 
-const TextTimer = ({ seconds, isRunning, handleStop }) => {
+const TextTimer = ({ seconds, isRunning, handleStart, handleStop }) => {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
 
@@ -74,21 +75,35 @@ const TextTimer = ({ seconds, isRunning, handleStop }) => {
   return (
     <>
       <Navbar />
-      <section className="flex h-1/2 flex-col items-center justify-center text-balance">
-        <h1 className="my-auto text-center text-3xl font-bold">
-          {minutes === 0
-            ? `${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`
-            : `${timeToText(minutes).toUpperCase()} MINUTER OCH ${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`}
-        </h1>
-      </section>
+      <section className="flex h-screen w-4/5 max-w-screen-xl flex-col items-center justify-center text-pretty">
+        <div className="flex h-1/2 w-full flex-col items-center justify-center">
+          <h1 className="my-auto text-center text-3xl font-bold">
+            {minutes === 0
+              ? `${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`
+              : `${timeToText(minutes).toUpperCase()} MINUTER OCH ${timeToText(remainingSeconds).toUpperCase()} SEKUNDER KVAR`}
+          </h1>
+        </div>
 
-      <motion.button
-        className="rounded-[5px] border border-gray-500 p-[10px] font-bold text-gray-500 hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
-        whileHover={{ scale: 0.95 }}
-        onClick={handleStop}
-      >
-        ABORT TIMER
-      </motion.button>
+        {isRunning ? (
+          <motion.button
+            className="rounded-[5px] border border-gray-500 p-[10px] font-bold text-gray-500 hover:border-2 hover:border-red-300 hover:text-red-500 max-[320px]:text-lg"
+            whileHover={{ scale: 0.95 }}
+            onClick={handleStop}
+          >
+            ABORT TIMER
+          </motion.button>
+        ) : (
+          <Link to={"/text"}>
+            <motion.button
+              className="rounded-[5px] border border-gray-500 p-[10px] font-bold text-gray-500 hover:border-2 hover:border-green-300 hover:text-green-500 max-[320px]:text-lg"
+              whileHover={{ scale: 0.95 }}
+              onClick={handleStart}
+            >
+              START TIMER
+            </motion.button>
+          </Link>
+        )}
+      </section>
     </>
   );
 };

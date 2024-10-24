@@ -27,11 +27,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="relative z-30 flex w-[90vw] max-w-screen-xl items-center justify-between pt-4">
+      <nav className="relative z-30 mx-auto flex w-[90vw] max-w-screen-xl items-center justify-between pt-4">
         <button onClick={toggleOpen}>
           <img src={isOpen ? navIconWhite : navIconBlack} alt="Icon" />
         </button>
-        {!isOpen && <p className="text-custom-gray">interval</p>}{" "}
+        {!isOpen && <p className="text-custom-gray">interval</p>}
       </nav>
 
       <AnimatePresence>
@@ -47,7 +47,6 @@ const Navbar = () => {
           />
         )}
       </AnimatePresence>
-
       {isOpen && (
         <motion.div
           className="fixed inset-0 z-20 flex flex-col items-center justify-center gap-8 text-4xl font-bold text-white max-[320px]:text-3xl"

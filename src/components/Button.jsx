@@ -1,13 +1,7 @@
-const Button = ({ onClick, children, ...props }) => {
-  return (
-    <button
-      className="rounded-[5px] border border-white p-[10px] text-2xl font-bold"
-      onClick={onClick}
-      {...props}
-    >
-      {children}
-    </button>
-  );
+import { motion } from "framer-motion";
+
+const Button = ({ handleStart, handleStop, handleRestart, children }) => {
+  return <motion.button>{children}</motion.button>;
 };
 
 export default Button;

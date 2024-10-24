@@ -32,7 +32,7 @@ const Alarm = ({ handleStop }) => {
           duration: 1.5,
           delay: 0.5,
         }}
-      ></motion.div>
+      />
 
       <motion.div
         className="absolute z-20 aspect-square w-[50vw] rounded-full max-[320px]:w-[100vw]"
@@ -44,7 +44,7 @@ const Alarm = ({ handleStop }) => {
           duration: 1.5,
           delay: 1,
         }}
-      ></motion.div>
+      />
 
       <div className="relative z-30 my-8 flex flex-col items-center justify-center">
         <motion.img
@@ -55,7 +55,7 @@ const Alarm = ({ handleStop }) => {
           initial="initial"
           animate="animate"
           transition={{ repeat: Infinity, duration: 2 }}
-        ></motion.img>
+        />
 
         <p className="mb-20 mt-8 text-4xl font-bold text-white">
           {text.map((char, index) => (

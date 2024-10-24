@@ -1,11 +1,6 @@
-import Navbar from "./Navbar";
-
-const Container = ({ children, ...props }) => {
+const Container = ({ children }) => {
   return (
-    <main
-      className="max-w-screen relative mx-auto flex h-screen flex-col items-center justify-center tracking-widest text-custom-gray"
-      {...props}
-    >
+    <main className="relative mx-auto flex h-screen w-screen flex-col items-center justify-center tracking-widest text-custom-gray">
       {children}
     </main>
   );
