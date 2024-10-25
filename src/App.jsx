@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Route, Routes, useLocation } from "react-router-dom";
-import Loading from "./pages/Loading.jsx";
-import SetTimer from "./pages/SetTimer.jsx";
-import DigitalTimer from "./pages/DigitalTimer.jsx";
-import AnalogTimer from "./pages/AnalogTimer.jsx";
-import TextTimer from "./pages/TextTimer.jsx";
-import Alarm from "./pages/Alarm.jsx";
-import Pause from "./pages/Pause.jsx";
-import Container from "./components/Container.jsx";
+import Loading from "./pages/Loading";
+import SetTimer from "./pages/SetTimer";
+import DigitalTimer from "./pages/DigitalTimer";
+import AnalogTimer from "./pages/AnalogTimer";
+import TextTimer from "./pages/TextTimer";
+import Alarm from "./pages/Alarm";
+import Pause from "./pages/Pause";
+import Container from "./components/Container";
 
 const App = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const App = () => {
   const [isTesting, setTesting] = useState(false);
 
   const BREAK_DURATION = isTesting ? 5 : 5 * 60;
-  const INITIAL_TIME = isTesting ? 5 : 5 * 60;
+  const INITIAL_TIME = isTesting ? 10 : 5 * 60;
 
   const [seconds, setSeconds] = useState(INITIAL_TIME);
   const [breakTime, setBreakTime] = useState(BREAK_DURATION);

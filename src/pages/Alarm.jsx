@@ -31,6 +31,7 @@ const Alarm = ({ handleStop }) => {
           repeat: Infinity,
           duration: 1.5,
           delay: 0.5,
+          ease: "easeInOut",
         }}
       />
 
@@ -43,6 +44,7 @@ const Alarm = ({ handleStop }) => {
           repeat: Infinity,
           duration: 1.5,
           delay: 1,
+          ease: "easeInOut",
         }}
       />
 

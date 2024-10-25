@@ -27,7 +27,12 @@ const Pause = ({ breakTime, handleRestart }) => {
           variants={backgroundAnimation}
           initial="initial"
           animate="animate"
-          transition={{ repeat: Infinity, duration: 5, delay: 0.5 }}
+          transition={{
+            repeat: Infinity,
+            duration: 5,
+            delay: 0.5,
+            ease: "easeInOut",
+          }}
         />
 
         <motion.div
@@ -35,7 +40,12 @@ const Pause = ({ breakTime, handleRestart }) => {
           variants={backgroundAnimation}
           initial="initial"
           animate="animate"
-          transition={{ repeat: Infinity, duration: 5, delay: 1 }}
+          transition={{
+            repeat: Infinity,
+            duration: 5,
+            delay: 1,
+            ease: "easeInOut",
+          }}
         />
 
         <div className="z-30 mt-28 flex w-4/5 flex-col items-center justify-center">

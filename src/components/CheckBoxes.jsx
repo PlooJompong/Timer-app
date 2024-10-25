@@ -18,21 +18,23 @@ const CheckBoxes = ({
         <p className="text-lg max-[320px]:text-base">intervals</p>
       </div>
 
-      <div className="flex items-center justify-start">
-        <input
-          id="break"
-          type="checkbox"
-          className="mr-3 h-5 w-5"
-          checked={breakIsOn}
-          onChange={() => setBreakIsOn((prevState) => !prevState)}
-        />
+      {isIntervals && (
+        <div className="flex items-center justify-start">
+          <input
+            id="break"
+            type="checkbox"
+            className="mr-3 h-5 w-5"
+            checked={breakIsOn}
+            onChange={() => setBreakIsOn((prevState) => !prevState)}
+          />
 
-        <p className="text-lg max-[320px]:text-base">
-          {isTesting
-            ? "5 seconds break / interval"
-            : "5 minutes break / interval"}
-        </p>
-      </div>
+          <p className="text-lg max-[320px]:text-base">
+            {isTesting
+              ? "5 seconds break / interval"
+              : "5 minutes break / interval"}
+          </p>
+        </div>
+      )}
     </div>
   );
 };

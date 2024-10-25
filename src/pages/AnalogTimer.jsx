@@ -31,7 +31,7 @@ const AnalogTimer = ({ seconds, isRunning, handleStart, handleStop }) => {
             <img src={analog} alt="Analog Clock" className="absolute inset-0" />
 
             <div
-              className="minute-hand absolute left-[50%] top-[14px] h-[125px] w-[3px] origin-bottom bg-black"
+              className="absolute left-[50%] top-[14px] h-[125px] w-[3px] origin-bottom bg-black"
               style={{
                 transform: `rotate(${handleAngle.minutes}deg)`,
                 transition: "transform 0.5s ease-in-out",
@@ -39,7 +39,7 @@ const AnalogTimer = ({ seconds, isRunning, handleStart, handleStop }) => {
             />
 
             <div
-              className="second-hand absolute left-[50%] top-[14px] h-[125px] w-[2px] origin-bottom bg-red-500"
+              className="absolute left-[50%] top-[14px] h-[125px] w-[2px] origin-bottom bg-red-500"
               style={{
                 transform: `rotate(${handleAngle.seconds}deg)`,
                 transition: "transform 0.1s linear",
